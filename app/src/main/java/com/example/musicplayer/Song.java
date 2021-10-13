@@ -17,8 +17,8 @@ public class Song {
     }
 
     /* Get the default song id number*/
-    public int getIdNumberSong() {
-        return idNumberSong;
+    public String getIdNumberSong() {
+        return String.valueOf(idNumberSong)+"-";
     }
 
     /* Get the default song file name */
