@@ -1,11 +1,14 @@
 package com.example.musicplayer;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.media.browse.MediaBrowser;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,12 +25,14 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
 
     private Activity context;
+    TextView fileName;
+    Intent intent;
+    MediaPlayer pl1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ImageView songsList = findViewById(R.id.songs_list);
         songsList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,24 +41,41 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(listsIntent);
             }
         });
-        TextView fileName=findViewById(R.id.file_name);
+        fileName = findViewById(R.id.file_name);
         ImageView addSong = findViewById(R.id.add_song);
 
         addSong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("audio/mp3");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
                 try {
-                    startActivityForResult(intent.createChooser(intent,"Select MP3"),1010);
+                    startActivityForResult(intent, 10);
+                } catch (ActivityNotFoundException e) {
 
                 }
-                catch (ActivityNotFoundException e){
 
-                }
-                fileName.setText(intent.getData().getPath());
             }
         });
+
+        ImageView play=findViewById(R.id.play);
+        play.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case 10:
+                if (resultCode == RESULT_OK) {
+                    String path = data.getData().getPath();
+                    fileName.setText(path);
+                }
+                break;
+        }
     }
 }

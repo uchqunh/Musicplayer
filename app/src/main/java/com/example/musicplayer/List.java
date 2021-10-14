@@ -2,25 +2,28 @@ package com.example.musicplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class List extends AppCompatActivity {
-
+public class List<S> extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.file_list_item);
         // Create an array of words
-        ArrayList<Song> songs = new ArrayList<Song>();
-       // songs.add(new Song(1, "lutti","png"));
+        //ArrayList<Song> songs = new ArrayList<Song>();
+        //songs.add(new Song(idSong, ,"png"));
         //songs.add(new Song(2, "otiiko","png"));
 
-
         SongAdapter itemsAdapter =
-                new SongAdapter(this, songs);
+                new SongAdapter(this, getAllMp3FromDevice(this));
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
@@ -32,5 +35,39 @@ public class List extends AppCompatActivity {
         // Do this by calling the setAdapter method on the {@link ListView} object and pass in
         // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
         listView.setAdapter(itemsAdapter);
+    }
+
+    public ArrayList<Song> getAllMp3FromDevice(final Context context) {
+        final ArrayList<Song> tempAudioList = new ArrayList<>();
+
+        Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        String[] projection = {MediaStore.Audio.AudioColumns.DATA, MediaStore.Audio.AudioColumns.ALBUM, MediaStore.Audio.ArtistColumns.ARTIST,};
+        Cursor c = context.getContentResolver().query(uri,
+                projection,
+                MediaStore.Audio.Media.DATA + " like ? ",
+                new String[]{"%.mp3%"},
+                null);
+
+        if (c != null) {
+            while (c.moveToNext()) {
+
+                Song audioModel = new Song();
+                String path = c.getString(0);
+                String album = c.getString(1);
+                String artist = c.getString(2);
+
+                String name = path.substring(path.lastIndexOf("/") + 1);
+
+                audioModel.Song(path, name, artist, album);
+
+                Log.e("Name :" + name, " Album :" + album);
+                Log.e("Path :" + path, " Artist :" + artist);
+
+                tempAudioList.add(audioModel);
+            }
+            c.close();
+        }
+
+        return tempAudioList;
     }
 }

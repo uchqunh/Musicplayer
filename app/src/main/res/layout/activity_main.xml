@@ -13,15 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="94dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="30dp"
         android:gravity="center_horizontal"
-        android:text="File"
+        android:text="@string/music_name"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,15 +29,13 @@
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="0dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginBottom="76dp"
         android:scaleX="1"
         android:scaleY="1"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/file_name"
+        app:layout_constraintTop_toTopOf="@id/file_name"
         app:srcCompat="@drawable/seekpng_com_mp3_player_png_3404589" />
 
     <ImageView
@@ -49,7 +47,7 @@
         android:layout_marginTop="42dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="135dp"
+        android:layout_marginBottom="24dp"
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/add_song"
@@ -64,13 +62,13 @@
         android:layout_width="70dp"
         android:layout_height="43dp"
         android:layout_marginTop="42dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginRight="104dp"
-        android:layout_marginBottom="135dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginRight="112dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/baseline_library_add_black_24dp" />
 
     <ImageView
@@ -79,21 +77,21 @@
         android:layout_height="44dp"
         android:layout_marginStart="106dp"
         android:layout_marginLeft="106dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toStartOf="@+id/play"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/baseline_skip_previous_black_24dp" />
+        app:srcCompat="@drawable/baseline_pause_black_24dp" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/play"
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:layout_marginStart="17dp"
         android:layout_marginLeft="17dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView6"
@@ -107,13 +105,13 @@
         android:layout_height="44dp"
         android:layout_marginStart="17dp"
         android:layout_marginLeft="17dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="105dp"
         android:layout_marginRight="105dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/play"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/baseline_skip_next_black_24dp" />
+        app:srcCompat="@drawable/baseline_volume_off_black_24dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

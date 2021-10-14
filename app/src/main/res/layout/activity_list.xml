@@ -8,16 +8,20 @@
 
 
     <TextView
-        android:id="@+id/order_number_songs"
+        android:id="@+id/name_song"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="1-" />
 
     <TextView
-        android:id="@+id/songs_name"
+        android:id="@+id/name_artist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Afruza-meni alda.mp3" />
+    <ImageView
+        android:id="@+id/album_song"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
