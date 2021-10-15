@@ -13,6 +13,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class List<S> extends AppCompatActivity {
+    public ArrayList<Song> tempAudioList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class List<S> extends AppCompatActivity {
         //ArrayList<Song> songs = new ArrayList<Song>();
         //songs.add(new Song(idSong, ,"png"));
         //songs.add(new Song(2, "otiiko","png"));
-
+        tempAudioList=getAllMp3FromDevice(this);
         SongAdapter itemsAdapter =
                 new SongAdapter(this, getAllMp3FromDevice(this));
 
