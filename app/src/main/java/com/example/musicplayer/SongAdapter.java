@@ -29,15 +29,17 @@ public class SongAdapter extends ArrayAdapter<Song> {
         }
 
 
-        Song currentAndroidFlavor = getItem(position);
+        Song currentSong = getItem(position);
 
-        TextView orderNumberSongs = (TextView) listItemView.findViewById(R.id.order_number_songs);
+        TextView nameSong = (TextView) listItemView.findViewById(R.id.name_song);
 
-        orderNumberSongs.setText(currentAndroidFlavor.getIdNumberSong());
+        nameSong.setText(currentSong.getNameSong());
 
-        TextView songsName = (TextView) listItemView.findViewById(R.id.songs_name);
+        TextView nameArtist = (TextView) listItemView.findViewById(R.id.name_artist);
       
-        songsName.setText(currentAndroidFlavor.getFileNameSong());
+        nameArtist.setText(currentSong.getNameArtist());
+        //ImageView albumSong=(ImageView) listItemView.findViewById(R.id.album_song);
+        //albumSong.setImageURI(currentSong.getAlbumSong());
 
         return listItemView;
     }

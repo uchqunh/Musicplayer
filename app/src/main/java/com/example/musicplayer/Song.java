@@ -1,33 +1,42 @@
 package com.example.musicplayer;
 
 public class Song {
-    /*Song id number*/
-    private int idNumberSong;
+    /*Song path*/
+    private String pathSong;
 
-    /*Song file name*/
-    private String fileNameSong;
+    /*Song  name*/
+    private String nameSong;
 
-    /*Song image from file if yes*/
-    private String fileImageSong;
+    /*Song artist name*/
+    private String nameArtist;
 
-    public Song(int numberSong, String nameSong, String imageSong) {
-        idNumberSong = numberSong;
-        fileNameSong = nameSong;
-        fileImageSong = imageSong;
+    /*Song album*/
+    private String albumSong;
+
+    public void Song(String pathSong, String nameSong, String nameArtist, String albumSong) {
+        this.pathSong = pathSong;
+        this.nameSong = nameSong;
+        this.nameArtist = nameArtist;
+        this.albumSong = albumSong;
     }
 
-    /* Get the default song id number*/
-    public String getIdNumberSong() {
-        return String.valueOf(idNumberSong)+"-";
+    /* Get the default song path*/
+    public String getPathSong() {
+        return pathSong;
     }
 
-    /* Get the default song file name */
-    public String getFileNameSong() {
-        return fileNameSong;
+    /* Get the default song  name */
+    public String getNameSong() {
+        return nameSong;
     }
 
-    /*Get the default song image*/
-    public String getFileImageSong() {
-        return fileImageSong;
+    /*Get the default song artist*/
+    public String getNameArtist() {
+        return nameArtist;
+    }
+
+    /*Get the default song album*/
+    public String getAlbumSong() {
+        return albumSong;
     }
 }
