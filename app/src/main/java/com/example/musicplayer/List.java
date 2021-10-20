@@ -22,6 +22,9 @@ public class List<S> extends AppCompatActivity {
         //ArrayList<Song> songs = new ArrayList<Song>();
         //songs.add(new Song(idSong, ,"png"));
         //songs.add(new Song(2, "otiiko","png"));
+        Song temp=new Song();
+        temp.Song("/res/raw/bonu_uzicha.mp3","bonu_uzicha.mp3","Bonu","Uzicha");
+        tempAudioList.set(0,temp);
         tempAudioList=getAllMp3FromDevice(this);
         SongAdapter itemsAdapter =
                 new SongAdapter(this, getAllMp3FromDevice(this));
@@ -71,4 +74,5 @@ public class List<S> extends AppCompatActivity {
 
         return tempAudioList;
     }
+
 }

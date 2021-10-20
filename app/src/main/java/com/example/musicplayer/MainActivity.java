@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     String path = data.getData().getPath();
                     fileName.setText(path);
-                    String album=data.getClipData().
                 }
                 break;
         }
